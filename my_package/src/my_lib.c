@@ -1,13 +1,15 @@
 #include <TH/TH.h>
 
-int my_lib_add_forward(THFloatTensor *input1, THFloatTensor *input2,
-		       THFloatTensor *output)
+float erf(float x){
+    return
+}
+
+int batch_erf_forward(THFloatTensor *input , THFloatTensor *output)
 {
-  if (!THFloatTensor_isSameSizeAs(input1, input2))
-    return 0;
-  THFloatTensor_resizeAs(output, input1);
-  THFloatTensor_cadd(output, input1, 1.0, input2);
-  return 1;
+    float* input_content = THFloatTensor_data(input);
+    int batchSize = (int) input1->size[0];
+
+    return 1;
 }
 
 int my_lib_add_backward(THFloatTensor *grad_output, THFloatTensor *grad_input)

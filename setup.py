@@ -10,12 +10,12 @@ import build
 this_file = os.path.dirname(__file__)
 
 setup(
-    name="my_package",
+    name="pytorch-erf",
     version="0.1",
-    description="An example project using PyTorch FFI",
-    url="https://github.com/pytorch/ffi-examples",
-    author="XYZ",
-    author_email="author@email.com",
+    description="An implementation of the erf function for pytorch",
+    url="https://github.com/hadware/pytorh-erf",
+    author="Hadrien Titeux",
+    author_email="hadrien.titeux@gmail.com",
     # Require cffi.
     install_requires=["cffi>=1.0.0"],
     setup_requires=["cffi>=1.0.0"],
