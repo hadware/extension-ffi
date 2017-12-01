@@ -66,15 +66,13 @@ float compute_polynomial(polynomial* poly, float x){
 }
 
 float erf(float x){
-    float ax = abs(x)
+    float ax = abs(x);
     if (ax <= 0.5){
         float t = x * x;
         return x * ((compute_polynomial(&A, t) + 1.0) / (compute_polynomial(&B, t) + 1.0));
     }
     else if(ax <=  4.0){
-        float top = compute_polynomial(&Q, ax);
-        float bot = compute_polynomial(&P, ax);
-        float erf = 0.5 + (0.5 - exp(-x*x) * top / bot);
+        float erf = 0.5 + (0.5 - exp(-x*x) * compute_polynomial(&P, ax) / compute_polynomial(&Q, ax));
         return (x < 0) ? -erf : erf;
     }
     else if(ax < 5.8){
