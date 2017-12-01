@@ -5,12 +5,12 @@ from .._ext import my_lib
 
 
 class MyAddFunction(Function):
-    def forward(self, input1, input2):
-        output = input1.new()
-        if not input1.is_cuda:
-            my_lib.my_lib_add_forward(input1, input2, output)
+    def forward(self, input_tensor):
+        output = input_tensor.new()
+        if not input_tensor.is_cuda:
+            my_lib.my_lib_add_forward(input_tensor, output)
         else:
-            my_lib.my_lib_add_forward_cuda(input1, input2, output)
+            my_lib.my_lib_add_forward_cuda(input_tensor, output)
         return output
 
     def backward(self, grad_output):

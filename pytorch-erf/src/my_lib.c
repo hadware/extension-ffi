@@ -99,9 +99,3 @@ int batch_erf_forward(THFloatTensor *input , THFloatTensor *output)
     return 1;
 }
 
-int batch_erf_backward(THFloatTensor *grad_output, THFloatTensor *grad_input)
-{
-  THFloatTensor_resizeAs(grad_input, grad_output);
-  THFloatTensor_fill(grad_input, 1);
-  return 1;
-}
