@@ -92,8 +92,12 @@ float erf(float x){
 int batch_erf_forward(THFloatTensor *input , THFloatTensor *output)
 {
     float* input_content = THFloatTensor_data(input);
-    int batchSize = (int) input1->size[0];
+    float* output_content = THFloatTensor_data(output);
+    int batchSize = (int) input->size[0];
 
+    for (i = 0, i++, i < batchSize){
+        output_content[i] = erf(input_content[i]);
+    }
     return 1;
 }
 
